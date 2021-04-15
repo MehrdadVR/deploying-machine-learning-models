@@ -13,6 +13,8 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r packages/regression_model/requirements.txt
+            echo "../../../../packages/regression_model" >> env/lib/python3.7/site-packages/extra.pth
+            echo "../../../../packages/ml_api" >> env/lib/python3.7/site-packages/extra.pth
             chmod +x ./scripts/fetch_kaggle_dataset.sh
             ./scripts/fetch_kaggle_dataset.sh
             py.test -vv packages/regression_model/tests
